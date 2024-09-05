@@ -18,7 +18,7 @@ def parse_eml(file_path):
         "replies": []
     }
     
-    # Extract the body of the email (plain text or HTML)
+    # Extract the body of the email
     if msg.is_multipart():
         for part in msg.iter_parts():
             if part.get_content_type() == "text/plain":
@@ -106,8 +106,6 @@ def clean_email_content(file_path, output_path):
         for line in cleaned_content:
             if line:  # Skip empty lines
                 file.write(line + '\n')
-
-    print("ran")
 
 # Usage
 clean_email_content('/Users/disha.patel/Desktop/parsed_email_data.txt', '/Users/disha.patel/Desktop/cleaned_email_data.txt')
